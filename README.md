@@ -4,18 +4,18 @@ This project allows controlling the Unitree G1 robot using a wireless Dualshock 
 
 ## Description
 
-The project provides a real-time interface for controlling the G1 robot using a gamepad. Various movement modes are supported: standing, walking, damping, and others.
+The project provides a real-time interface for controlling the G1 robot using a gamepad. 
 
 ## Requirements
 
-- Python 3.x
+- Python >= 3.8
 - Ubuntu/Linux with Bluetooth support
-- Dualshock controller (PS4 or PS5)
+- Dualshock controller (PS4 or PS5) or other
 - Access to Unitree G1 robot
 
 ## Installation
 
-1. Install Unitree SDK:
+1. Install Unitree SDK python:
    ```bash
    pip3 install -e ./sdk
    ```
