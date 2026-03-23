@@ -89,7 +89,7 @@ Use the following button combinations on the controller:
 
 ### Additional Commands
 
-- Other buttons and sticks on the controller can be used to control robot movement in respective modes.
+- Sticks on the controller can be used to control robot movement in respective modes.
 
 ## Troubleshooting
 
