@@ -4,17 +4,18 @@ import time
 class GamePad:
     def __init__(self):
         pygame.init()
+        if pygame.joystick.get_count() == 0:
+            print("Геймпад не найден")
+            pygame.joystick.quit()
+            time.sleep(1)
+            self.__init__()
         pygame.joystick.init()
         self.joystick = pygame.joystick.Joystick(0)
 
         self.btns_map = ["X", 'O', 'T', 'S', 'L1', 'R1', 'L2', 'R2', 'SHARE', 'OPTION', 'PS', 'LT', 'RT']
         self.stick_ax = [0, 1, 3, 4]
         self.threshold = 0.1
-        if pygame.joystick.get_count() == 0:
-            print("Геймпад не найден")
-            pygame.joystick.quit()
-            time.sleep(1)
-            self.__init__()
+
 
 
     def get_btns(self):

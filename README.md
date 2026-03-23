@@ -5,6 +5,31 @@ pip3 install -e ./sdk
 
 pip3 install pygame
 
+# Controller
+
+sudo apt install bluetooth bluez bluez-tools
+
+sudo systemctl start bluetooth
+
+bluetoothctl
+
+power on
+
+agent on
+
+default-agent
+
+scan on
+
+get adress:
+
+Wireless Controller XX:XX:XX:XX:XX
+
+pair XX:XX:XX:XX:XX
+
+connect XX:XX:XX:XX:XX
+
+trust XX:XX:XX:XX:XX
 
 # Run 
 python g1_controller.py $interface
