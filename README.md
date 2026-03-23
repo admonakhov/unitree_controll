@@ -1,7 +1,8 @@
-Controlling unitree g1 via Dualshoc
+Controlling unitree g1 via Dualshock
 
 # Installation 
 pip3 install -e ./sdk
+
 pip3 install pygame
 
 
