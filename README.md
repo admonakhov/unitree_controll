@@ -35,3 +35,11 @@ sudo usermod -aG input unitree
 
 # Run 
 python g1_controller.py $interface
+
+# Controlling
+
+L2 + cirle -> Damping
+L2 + UP -> Stand
+L2 + Square -> Walk
+
+Robot is prepared for walking
