@@ -63,11 +63,10 @@ def run_loop(robot, controller, dt=0.01):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print(f"Usage: python3 {sys.argv[0]} networkInterface")
-        sys.exit(-1)
-    
     controller = GamePad()
-    robot = G1_robot_controller(channel=None)
+    if len(sys.argv) < 2:
+        robot = G1_robot_controller(channel=None)
+    else:
+        robot = G1_robot_controller(channel=sys.argv[1])
     run_loop(robot, controller, dt=0.02)
     

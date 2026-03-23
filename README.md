@@ -31,5 +31,7 @@ connect XX:XX:XX:XX:XX
 
 trust XX:XX:XX:XX:XX
 
+sudo usermod -aG input unitree
+
 # Run 
 python g1_controller.py $interface
