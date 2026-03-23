@@ -68,6 +68,6 @@ if __name__ == "__main__":
         sys.exit(-1)
     
     controller = GamePad()
-    robot = G1_robot_controller(channel=sys.argv[1])
+    robot = G1_robot_controller(channel=None)
     run_loop(robot, controller, dt=0.02)
     
