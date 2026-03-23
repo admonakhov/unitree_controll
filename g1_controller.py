@@ -37,7 +37,7 @@ class G1_robot_controller:
                 self.sport_client.Walk()
     
     def move(self, axis):
-        self.sport_client.Move(-axis[1], -axis[0], -axis[2])
+        self.sport_client.Move(-axis[1], -axis[0], -axis[2]*3.14)
 
         
 def run_loop(robot, controller, dt=0.01):
