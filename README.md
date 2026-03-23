@@ -1,45 +1,112 @@
-Controlling unitree g1 via Dualshock
+# Controlling Unitree G1 Robot with Dualshock Controller
 
-# Installation 
-pip3 install -e ./sdk
+This project allows controlling the Unitree G1 robot using a wireless Dualshock (PlayStation) controller via Bluetooth.
 
-pip3 install pygame
+## Description
 
-# Controller
+The project provides a real-time interface for controlling the G1 robot using a gamepad. Various movement modes are supported: standing, walking, damping, and others.
 
-sudo apt install bluetooth bluez bluez-tools
+## Requirements
 
-sudo systemctl start bluetooth
+- Python 3.x
+- Ubuntu/Linux with Bluetooth support
+- Dualshock controller (PS4 or PS5)
+- Access to Unitree G1 robot
 
-bluetoothctl
+## Installation
 
-power on
+1. Install Unitree SDK:
+   ```bash
+   pip3 install -e ./sdk
+   ```
 
-agent on
+2. Install Pygame library for controller support:
+   ```bash
+   pip3 install pygame
+   ```
 
-default-agent
+## Controller Setup
 
-scan on
+1. Install necessary Bluetooth packages:
+   ```bash
+   sudo apt install bluetooth bluez bluez-tools
+   ```
 
-get adress:
+2. Start Bluetooth service:
+   ```bash
+   sudo systemctl start bluetooth
+   ```
 
-Wireless Controller XX:XX:XX:XX:XX
+3. Enter Bluetooth setup mode:
+   ```bash
+   bluetoothctl
+   ```
 
-pair XX:XX:XX:XX:XX
+4. Inside bluetoothctl, run the following commands:
+   ```bash
+   power on
+   agent on
+   default-agent
+   scan on
+   ```
 
-connect XX:XX:XX:XX:XX
+5. Find your controller's address (usually named "Wireless Controller"):
+   ```
+   Wireless Controller XX:XX:XX:XX:XX:XX
+   ```
 
-trust XX:XX:XX:XX:XX
+6. Pair the controller:
+   ```bash
+   pair XX:XX:XX:XX:XX:XX
+   connect XX:XX:XX:XX:XX:XX
+   trust XX:XX:XX:XX:XX:XX
+   ```
 
-sudo usermod -aG input unitree
+7. Add user to input group (replace `unitree` with your username):
+   ```bash
+   sudo usermod -aG input unitree
+   ```
 
-# Run 
-python g1_controller.py $interface
+   Reboot the system or log out and back in for changes to take effect.
 
-# Controlling
+## Running
 
-L2 + cirle -> Damping
-L2 + UP -> Stand
-L2 + Square -> Walk
+Run the control script, specifying the robot connection interface:
 
-Robot is prepared for walking
+```bash
+python g1_controller.py <interface>
+```
+
+Replace `<interface>` with the appropriate network interface or robot IP address.
+
+## Controls
+
+Use the following button combinations on the controller:
+
+- **L2 + Circle**: Damping mode
+- **L2 + Up**: Stand mode
+- **L2 + Square**: Walk mode
+
+### Additional Commands
+
+- Other buttons and sticks on the controller can be used to control robot movement in respective modes.
+
+## Troubleshooting
+
+- **Controller not connecting**: Ensure Bluetooth is enabled and the controller is charged. Try resetting the controller (hold PS + Share for 10 seconds).
+- **Input access error**: Ensure the user is added to the `input` group and reboot.
+- **SDK issues**: Check SDK installation and dependencies.
+
+## Project Structure
+
+- `g1_controller.py`: Main control script
+- `gamepad_control.py`: Gamepad handling module
+- `sdk/`: Unitree SDK
+
+## License
+
+This project uses the Unitree SDK. Check the license in the `sdk/` folder.
+
+## Contacts
+
+For questions and support, refer to Unitree documentation or developer community.
